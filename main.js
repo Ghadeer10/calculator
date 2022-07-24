@@ -117,6 +117,7 @@ function operate() {
                 secondNum = +result.value.slice(operIndex + 1);
                 if (secondNum == 0) {
                     alert("can't divide by zero");
+                    clearAll();
                     break;
                 }
                 else {
