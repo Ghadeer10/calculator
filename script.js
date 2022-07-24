@@ -62,8 +62,8 @@ function enterDot() {
     }
     else if (opreator !== '') {
         let i = result.value.length - 1;
-        if (i == operIndex) {
-            result.value += '0.';
+        if (i === operIndex) {
+            result.value += "0.";
         }
         else {
             let secondNumAsStr = result.value.slice(operIndex + 1);
@@ -110,14 +110,25 @@ function operate() {
                 break;
             case '/':
                 secondNum = +result.value.slice(operIndex + 1);
-                total = +firstNum / +secondNum;
-                total = Math.round((total + Number.EPSILON) * 100000) / 100000;
-                result.value = total;
-                firstNum = +total;
-                opreator = '';
-                secondNum = 0;
-                operIndex = '';
-                break;
+                if (secondNum == 0){
+                    total = Error
+                    result.value = total;
+                    firstNum = +total;
+                    opreator = '';
+                    secondNum = 0;
+                    operIndex = '';
+                    break;
+                }
+                else{
+                    total = +firstNum / +secondNum;
+                    total = Math.round((total + Number.EPSILON) * 100000) / 100000;
+                    result.value = total;
+                    firstNum = +total;
+                    opreator = '';
+                    secondNum = 0;
+                    operIndex = '';
+                    break;
+                }
             default:
                 alert("Enter valid mathmatical operation");
                 break;
