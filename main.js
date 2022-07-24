@@ -4,6 +4,23 @@ let opreator = '';
 let operIndex = '';
 result.value = 0;
 
+//for keyboard:
+result.onkeypress = function (e) {
+    var event = e || window.event;
+    var charCode = event.which || event.keyCode;
+    var charStr = String.fromCharCode(charCode);
+    if (charStr === '0' || charStr === '1' || charStr === '2' || charStr === '3' || charStr === '4' || charStr === '5' ||
+        charStr === '6' || charStr === '7' || charStr === '8' || charStr === '9' || charStr === '.' || charStr === '+' ||
+        charStr === '-' || charStr === '*' || charStr === '/') {
+        if (result.value == 0) { result.value = ''; }
+    }
+    else if (charCode == '13') {
+        operate();
+    }
+    else {
+        alert('no alphabet allowed to enter for now, so delete it');
+    }
+}
 
 //function for entering number:
 function enterNumber(num) {
